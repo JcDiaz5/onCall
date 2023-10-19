@@ -18,12 +18,19 @@
         </div>
         <div class="register-row">
             <h3>Aún no estas registrado?</h3>
-            <button onclick="openPopup()">Registrate</button>
+            <p>Selecciona el tipo de cuenta deseado:</p>
+            <div class="reg-especialista">
+                <button onclick="openPopup()">Especialista</button>
+            </div>
+            <div class="reg-clinica">
+                <button onclick="openPopup2()">Clinica</button>
+            </div>
         </div>
+<!-- Forma de Registro Popup para Especialista -->
         <div class="overlay" id="overlay" onclick="closePopup()"></div>
         <div class="popup" id="popup">
             <h2>Registro de Especialista</h2>
-            <form>
+            <form action="/registrar_especialista" method="POST">
                 <label for="nombre">Nombre(s):</label>
                 <input type="text" id="nombre_especialista" name="nombre" required>
                 
@@ -45,7 +52,36 @@
                 <label for="conf_contraseña">Confirmar Contraseña:</label>
                 <input type="password" id="conf_contraseña" name="conf_contraseña" required>
                 
-                <button type="submit">Registrate</button>
+                <button type="submit">Registrar Especialista</button>
+            </form>
+        </div>
+<!-- Forma de Registro Popup para Clinica -->
+        <div class="overlay" id="overlay2" onclick="closePopup2()"></div>
+        <div class="popup" id="popup2">
+            <h2>Registro de Clinica</h2>
+            <form action="/registrar_clinica" method="POST">
+                <label for="nombre">Nombre de la Clinica:</label>
+                <input type="text" id="nombre_clinica" name="nombre" required>
+                
+                <label for="dueño">Nombre de Dueño:</label>
+                <input type="text" id="dueño" name="dueño" required>
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" required>
+
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" required>
+                
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" required>
+
+                <label for="conf_contraseña">Confirmar Contraseña:</label>
+                <input type="password" id="conf_contraseña" name="conf_contraseña" required>
+                
+                <button type="submit">Registrar Clinica</button>
             </form>
         </div>
     </div>

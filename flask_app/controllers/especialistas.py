@@ -6,14 +6,10 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 # REGISTRAR ESPECIALISTA...........................
-@app.route('/crear_especialista')
-def crear_especialista():
-    return render_template('registro_especialista.html')
-
 @app.route('/registrar_especialista', methods=['POST'])
 def registrar_especialista():
     if not Especialista.validate_especialista(request.form):
-        return redirect("/crear_especialista")
+        return redirect("/")
     email = { "email" : request.form["email"] }
     especialista_en_bd = Especialista.get_by_email(email)
     if especialista_en_bd:
@@ -22,7 +18,10 @@ def registrar_especialista():
     pw_hash = bcrypt.generate_password_hash(request.form['contraseña'])
     data = {
         "nombre": request.form['nombre'],
+        "apellido": request.form['apellido'],
         "email": request.form['email'],
+        "num_contacto": request.form['num_contacto'],
+        "matricula": request.form['matricula'],
         "contraseña" : pw_hash
     }
     especialista_id = Especialista.guardar(data)

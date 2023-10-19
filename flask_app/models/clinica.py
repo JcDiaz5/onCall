@@ -28,3 +28,39 @@ class Clinica:
         VALUES (%(nombre)s, %(dueño)s, %(email)s, %(telefono)s, %(ubicacion)s, %(contraseña)s);
         """
         return connectToMySQL(cls.DB).query_db(query, data)
+    
+    @classmethod
+    def get_by_email(cls,data):
+        query = "SELECT * FROM clinicas WHERE email = %(email)s;"
+        result = connectToMySQL(cls.DB).query_db(query,data)
+        if len(result) < 1:
+            return False
+        return cls(result[0])
+
+
+# Validations............
+    @staticmethod
+    def validate_clinica(clinica):
+        is_valid = True
+        if len(clinica["nombre"]) < 2:
+            flash("Nombre debe contener al menos 2 letras.")
+            is_valid = False
+        if len(clinica["dueño"]) < 2:
+            flash("Nombre del dueño debe contener al menos 2 letras")
+            is_valid = False
+        if not EMAIL_REGEX.match(clinica['email']):
+            flash("Invalid email address!")
+            is_valid = False
+        if len(clinica["telefono"]) < 10:
+            flash("Teléfono debe de contener al menos 10 digitos.")
+            is_valid = False
+        if len(clinica["ubicacion"]) < 8:
+            flash("Ubicación debe contener al menos 8 caracteres.")
+            is_valid = False
+        if len(clinica["contraseña"]) < 8:
+            flash("Contraseña debe contener al menos 8 caracteres.")
+            is_valid = False
+        if (clinica["conf_contraseña"]) != (clinica["contraseña"]):
+            flash("Contraseñas no coinciden")
+            is_valid = False
+        return is_valid

@@ -23,7 +23,42 @@ class Especialista:
     @classmethod
     def guardar(cls, data):
         query="""
-        INSERT INTO especialistas(nombre,apellido, email, num_contacto, matricula, contraseña) 
+        INSERT INTO especialistas(nombre, apellido, email, num_contacto, matricula, contraseña) 
         VALUES (%(nombre)s, %(apellido)s, %(email)s, %(num_contacto)s, %(matricula)s, %(contraseña)s);
         """
         return connectToMySQL(cls.DB).query_db(query, data)
+    
+    @classmethod
+    def get_by_email(cls,data):
+        query = "SELECT * FROM especialistas WHERE email = %(email)s;"
+        result = connectToMySQL(cls.DB).query_db(query,data)
+        if len(result) < 1:
+            return False
+        return cls(result[0])
+    
+    # Validations............................
+    @staticmethod
+    def validate_especialista(especialista):
+        is_valid = True
+        if len(especialista["nombre"]) < 2:
+            flash("Nombre debe contener al menos 2 letras.")
+            is_valid = False
+        if len(especialista["apellido"]) < 2:
+            flash("Apellidos debe contener al menos 2 letras.")
+            is_valid = False
+        if not EMAIL_REGEX.match(especialista['email']):
+            flash("Invalid email address!")
+            is_valid = False
+        if len(especialista["num_contacto"]) < 10:
+            flash("Contacto debe de contener al menos 10 digitos.")
+            is_valid = False
+        if len(especialista["matricula"]) < 3:
+            flash("Matricula debe contener al menos #### digitos.")
+            is_valid = False
+        if len(especialista["contraseña"]) < 8:
+            flash("Contraseña debe contener al menos 8 caracteres.")
+            is_valid = False
+        if (especialista["conf_contraseña"]) != (especialista["contraseña"]):
+            flash("Contraseñas no coinciden")
+            is_valid = False
+        return is_valid
