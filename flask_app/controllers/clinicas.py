@@ -38,6 +38,29 @@ def registrar_clinica():
     session['clinica_id'] = clinica_id
     return redirect("/clinica_dash")
 
+# LOGIN CLINICA ......................................
+@app.route('/clinica_login', methods=['POST'])
+def clinica_login():
+    data = { "email" : request.form["email"] }
+    clinica_in_db = Clinica.get_by_email(data)
+    if not clinica_in_db:
+        flash("Email/Contraseña Invalido.")
+        return redirect("/")
+    if not bcrypt.check_password_hash(clinica_in_db.contraseña, request.form['contraseña']):
+        flash("Email/Contraseña Invalido.")
+        return redirect('/')
+    session['clinica_id'] = clinica_in_db.id
+    return redirect("/clinica_dash")
+
 @app.route('/clinica_dash')
 def clinica_dashboard():
-    return render_template('clinica_dash.html')
+    if 'clinica_id' not in session:
+        return redirect('/')
+    clinica=Clinica.get_one(session['clinica_id'])
+    return render_template('clinica_dash.html', clinica=clinica)
+
+# LOGUT CLINICA ........................................
+@app.route('/clinica_logout')
+def clinica_logout():
+    session.clear()
+    return redirect('/')

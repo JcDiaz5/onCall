@@ -13,8 +13,21 @@
         </div>
         <div class="login-row">
             <h2>Acceder Cuenta:</h2>
-            <a href="###" class="btn-clinica">Clinica</a>
-            <a href="###" class="btn-especialista">Especialista</a>
+            <div class="form">
+                <form action="/clinica_login" class="" method="POST">
+                    <div class="index-row">
+                        <label for="email">Email:</label>
+                        <input type="email" class="" name="email">
+                    </div>
+                    <div class="index-row">
+                        <label for="contraseña">Contraseña:</label>
+                        <input type="password" class="" name="contraseña">
+                    </div>
+                    <div>
+                        <input class="submit-btn" type="submit" value="Accesar">
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="register-row">
             <h3>Aún no estas registrado?</h3>

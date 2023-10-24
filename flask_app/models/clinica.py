@@ -37,6 +37,14 @@ class Clinica:
             return False
         return cls(result[0])
 
+    @classmethod
+    def get_one(cls, clinica_id):
+        query  = "SELECT * FROM clinicas WHERE id = %(id)s;"
+        data = {'id': clinica_id}
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        if not results:
+            return None
+        return cls(results[0])
 
 # Validations............
     @staticmethod
