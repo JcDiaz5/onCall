@@ -68,6 +68,62 @@ body {
 }
 
 
+/* LOGIN & REGISTRATION ................................. */
+.logo-header {
+    width: 200px;
+    margin: 20px 40px;
+}
+
+.welcome-msg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 80px;
+    color: gray;
+}
+
+.signin-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.register-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 50px;
+}
+
+.login-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-row h1, h2 {
+    color: rgb(89, 90, 92)
+}
+
+.index-row input {
+    border: 2px solid rgba(155, 153, 153, 0.676);
+    border-radius: 5px;
+    padding:7px;
+    font-size: 20px;
+    box-shadow: 4px 4px rgba(214, 214, 214, 0.489);
+    box-sizing: border-box;
+    margin-bottom:10px;
+    width: 100%;
+}
+
+.form {
+    color: lightslategray
+}
 /* CLINIC DASHBOARD ..................................... */
 
 .clinica-dash {
@@ -158,6 +214,7 @@ body {
     font-size: 25px;
     padding: 30px;
     border-radius: 50px;
+    border: 2px solid white;
 }
 
 .btn-secundarios:hover {
@@ -177,4 +234,33 @@ body {
     color: rgb(245, 245, 245);
     border: 3px solid rgb(227, 102, 249);
     background: linear-gradient(90deg, rgb(1, 163, 188), rgb(153, 50, 204));
+}
+
+.btn-register {
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid rgb(148, 148, 148);
+    margin: 10px;
+    width: 150px;
+}
+
+.btn-register:hover {
+    color: white;
+    background-color: rgb(65, 65, 65);
+    border: 2px solid rgb(148, 148, 148);
+}
+
+.btn-signin {
+    color: white;
+    background-color: #676767;
+    border: 1px solid rgb(55, 55, 55);
+    padding: 10px;
+    border-radius: 50px;
+    width: 150px;
+}
+
+.btn-signin:hover {
+    color: rgb(75, 75, 75);
+    background-color: #c1c1c1;
+    border: 1px solid rgb(150, 150, 150);
 }

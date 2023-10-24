@@ -4,39 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Barlow:wght@200;400&family=Dancing+Script&family=Fira+Sans&family=Handjet&family=Inter:wght@200&family=Roboto:wght@100&family=Varela+Round&display=swap" rel="stylesheet">
     <title>Login and Registration</title>
 </head>
 <body>
     <div class="main">
         <div class="logo-row">
-            <h1>onCall</h1>
+            <img src="/../static/img/onCall_logo2.png" alt="logo_img" class="logo-header">
         </div>
-        <div class="login-row">
-            <h2>Acceder Cuenta:</h2>
-            <div class="form">
-                <form action="/clinica_login" class="" method="POST">
-                    <div class="index-row">
-                        <label for="email">Email:</label>
-                        <input type="email" class="" name="email">
-                    </div>
-                    <div class="index-row">
-                        <label for="contraseña">Contraseña:</label>
-                        <input type="password" class="" name="contraseña">
-                    </div>
-                    <div>
-                        <input class="submit-btn" type="submit" value="Accesar">
-                    </div>
-                </form>
+        <h1 class="welcome-msg">Bienvenido</h1>
+        <div class="signin-container">
+            <div class="login-row">
+                <h1>Clinica</h1>
+                <h2>Acceder Cuenta:</h2>
+                <div class="form">
+                    <form action="/clinica_login" class="" method="POST">
+                        <div class="index-row">
+                            <label for="email">Email:</label>
+                            <input type="email" class="" name="email">
+                        </div>
+                        <div class="index-row">
+                            <label for="contraseña">Contraseña:</label>
+                            <input type="password" class="" name="contraseña">
+                        </div>
+                        <div>
+                            <input class="btn-signin" type="submit" value="Accesar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="login-row">
+                <h1>Especialista</h1>
+                <h2>Acceder Cuenta:</h2>
+                <div class="form">
+                    <form action="/especialista_login" class="" method="POST">
+                        <div class="index-row">
+                            <label for="email">Email:</label>
+                            <input type="email" class="" name="email">
+                        </div>
+                        <div class="index-row">
+                            <label for="contraseña">Contraseña:</label>
+                            <input type="password" class="" name="contraseña">
+                        </div>
+                        <div>
+                            <input class="btn-signin" type="submit" value="Accesar">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="register-row">
             <h3>Aún no estas registrado?</h3>
             <p>Selecciona el tipo de cuenta deseado:</p>
-            <div class="reg-especialista">
-                <button onclick="openPopup()">Especialista</button>
-            </div>
-            <div class="reg-clinica">
-                <button onclick="openPopup2()">Clinica</button>
+            <div class="btn-container">
+                <div class="reg-clinica">
+                    <button onclick="openPopup2()" class="btn-register">Clinica</button>
+                </div>
+                <div class="reg-especialista">
+                    <button onclick="openPopup()" class="btn-register">Especialista</button>
+                </div>
             </div>
         </div>
 <!-- Forma de Registro Popup para Especialista -->
