@@ -38,4 +38,6 @@ def registrar_clinica():
     session['clinica_id'] = clinica_id
     return redirect("/clinica_dash")
 
-
+@app.route('/clinica_dash')
+def clinica_dashboard():
+    return render_template('clinica_dash.html')

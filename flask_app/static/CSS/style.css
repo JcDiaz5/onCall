@@ -1,5 +1,10 @@
-
-
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
 /* Registro Pop-up */
 .overlay {
     display: none;
@@ -60,4 +65,107 @@
 
 .popup button:hover {
     background-color: #45a049;
+}
+
+
+/* CLINIC DASHBOARD ..................................... */
+
+.clinica-dash {
+    background-image: url('/../static/img/login&reg_background.png');
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-logo {
+    width: 500px;
+    margin: 0px 100px;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.topnav-link {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px;
+}
+
+.dash-contenedor {
+    display: flex;
+    width: 100%;
+}
+
+.cont-btn-principal {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-top: 80px;
+}
+
+.cont-btn-secundarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    gap: 30px;
+}
+
+/* BOTONES................................................. */
+
+.btn-especialistas {
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    background: linear-gradient(90deg, rgb(1, 163, 188), darkorchid);
+    text-decoration: none;
+    height: 50px;
+    font-size: 30px;
+    padding: 30px;
+    border-radius: 50px;
+    border: 6px solid rgba(226, 62, 255, 0.782);
+}
+
+.btn-especialistas:hover {
+    background: linear-gradient(90deg, rgba(153, 50, 204, 0.66), rgba(1, 163, 188, 0.685));
+    border: 6px solid rgb(5, 222, 255);
+
+}
+
+.btn-secundarios {
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    background: linear-gradient(90deg, rgb(1, 163, 188), darkorchid);
+    text-decoration: none;
+    width: 250px;
+    height: 25px;
+    font-size: 25px;
+    padding: 30px;
+    border-radius: 50px;
+}
+
+.btn-secundarios:hover {
+    border: 2px solid rgb(5, 222, 255);
+    background: linear-gradient(90deg, rgba(1, 163, 188, 0.709), rgba(153, 50, 204, 0.692));
+}
+
+.btn-logout{
+    color:rgba(114, 50, 204, 0.616);
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 50px;
+    border: 3px solid rgba(227, 102, 249, 0.552);
+    background: linear-gradient(90deg, rgba(1, 163, 188, 0.478), rgba(153, 50, 204, 0.473));
+
+}.btn-logout:hover {
+    color: rgb(245, 245, 245);
+    border: 3px solid rgb(227, 102, 249);
+    background: linear-gradient(90deg, rgb(1, 163, 188), rgb(153, 50, 204));
 }
