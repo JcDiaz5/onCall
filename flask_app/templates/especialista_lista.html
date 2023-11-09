@@ -15,22 +15,16 @@
             <a href="/clinica_logout" class="btn-logout">Cerrar Sesión</a>
         </div>
         <div class="lista-contenedor">
-            <div class="lista-especialistas">
-            {% for espacialista in especialistas %}
-                <div class="especialista-box">
-                    <input type="hidden" value="{{especialista.id}}" name="especialista_id">
-                    <p>Nombre: {{especialista.nombre}} {{especialista.apellido}}</p>
-                    <p>Rating: </p>
-                </div>
-            {% endfor %}
-            </div>
-            <div class="especialista-datos">
-                <p>Nombre: </p>
-                <p>Apellido: </p>
-                <p>Email: </p>
-                <p>Contacto Telefónico: </p>
-                <p>Cedula Profesional: </p>
-            </div>
+            <ul class="lista-especialistas">
+            {% for especialista in especialistas %}
+                <li><a href="###", especialista_id="especialista.id">{{especialista.nombre}} {{especialista.apellido}}</a>
+                    <p>Email: {{especialista.email}}</p>
+                    <p>Número de Contacto: {{especialista.num_contacto}}</p>
+                    <p>Cédula Profesional: {{especialista.matricula}}</p>
+                    <p>Rating: *****</p>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </body>

@@ -21,10 +21,10 @@ def registrar_especialista():
         "apellido": request.form['apellido'],
         "email": request.form['email'],
         "num_contacto": request.form['num_contacto'],
-        "matricula": request.form['matricula'],
+        "cedula": request.form['cedula'],
         "contraseña" : pw_hash
     }
-    especialista_id = Especialista.guardar(data)
+    especialista_id = Especialista.save(data)
     session['especialista_id'] = especialista_id
     return redirect("/especialista_dash")
 

@@ -13,7 +13,7 @@ class Especialista:
         self.apellido=data['apellido']
         self.email=data['email']
         self.num_contacto=data['num_contacto']
-        self.matricula=data['matricula']
+        self.cedula=data['cedula']
         self.contraseña=data['contraseña']
         self.created_at=data['created_at']
         self.updated_at=data['updated_at']
@@ -21,10 +21,10 @@ class Especialista:
 
 # CREATE USER..................
     @classmethod
-    def guardar(cls, data):
+    def save(cls, data):
         query="""
-        INSERT INTO especialistas(nombre, apellido, email, num_contacto, matricula, contraseña) 
-        VALUES (%(nombre)s, %(apellido)s, %(email)s, %(num_contacto)s, %(matricula)s, %(contraseña)s);
+        INSERT INTO especialistas(nombre, apellido, email, num_contacto, cedula, contraseña) 
+        VALUES (%(nombre)s, %(apellido)s, %(email)s, %(num_contacto)s, %(cedula)s, %(contraseña)s);
         """
         return connectToMySQL(cls.DB).query_db(query, data)
     
@@ -37,13 +37,12 @@ class Especialista:
         return cls(result[0])
     
     @classmethod
-    def get_all(cls, especialista_id):
-        query = "SELECT * FROM especialistas WHERE id = %(id)s;"
-        data = {'id': especialista_id}
-        result = connectToMySQL(cls.DB).query_db(query,data)
+    def get_all(cls):
+        query = "SELECT * FROM especialistas;"
+        result = connectToMySQL(cls.DB).query_db(query)
         if len(result) < 1:
             return False
-        return cls(result)
+        return result
     
     @classmethod
     def get_one(cls, especialista_id):
@@ -70,8 +69,8 @@ class Especialista:
         if len(especialista["num_contacto"]) < 10:
             flash("Contacto debe de contener al menos 10 digitos.")
             is_valid = False
-        if len(especialista["matricula"]) < 3:
-            flash("Matricula debe contener al menos #### digitos.")
+        if len(especialista["cedula"]) < 3:
+            flash("Cédula Profesional debe contener al menos #### digitos.")
             is_valid = False
         if len(especialista["contraseña"]) < 8:
             flash("Contraseña debe contener al menos 8 caracteres.")

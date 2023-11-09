@@ -35,7 +35,7 @@ def registrar_clinica():
         "ubicacion": request.form['ubicacion'],
         "contraseña" : pw_hash
     }
-    clinica_id = Clinica.guardar(data)
+    clinica_id = Clinica.save(data)
     session['clinica_id'] = clinica_id
     return redirect("/clinica_dash")
 
@@ -63,7 +63,7 @@ def clinica_dashboard():
 
 @app.route('/lista_especialistas')
 def lista_especialistas():
-    especialistas = Especialista.get_all(id)
+    especialistas = Especialista.get_all()
     return render_template('especialista_lista.html', especialistas=especialistas)
 
 # LOGUT CLINICA ........................................

@@ -22,7 +22,7 @@ class Clinica:
 
 # CREATE CHEF..................
     @classmethod
-    def guardar(cls, data):
+    def save(cls, data):
         query="""
         INSERT INTO clinicas(nombre, dueño, email, telefono, ubicacion, contraseña) 
         VALUES (%(nombre)s, %(dueño)s, %(email)s, %(telefono)s, %(ubicacion)s, %(contraseña)s);
