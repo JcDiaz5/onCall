@@ -54,10 +54,10 @@ class Clinica:
             flash("Nombre debe contener al menos 2 letras.")
             is_valid = False
         if len(clinica["dueño"]) < 2:
-            flash("Nombre del dueño debe contener al menos 2 letras")
+            flash("Nombre del dueño debe contener al menos 2 letras.")
             is_valid = False
         if not EMAIL_REGEX.match(clinica['email']):
-            flash("Invalid email address!")
+            flash("Email invalido.")
             is_valid = False
         if len(clinica["telefono"]) < 10:
             flash("Teléfono debe de contener al menos 10 digitos.")
@@ -69,6 +69,6 @@ class Clinica:
             flash("Contraseña debe contener al menos 8 caracteres.")
             is_valid = False
         if (clinica["conf_contraseña"]) != (clinica["contraseña"]):
-            flash("Contraseñas no coinciden")
+            flash("Contraseñas no coinciden.")
             is_valid = False
         return is_valid

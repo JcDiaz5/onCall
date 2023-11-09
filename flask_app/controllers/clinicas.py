@@ -1,5 +1,6 @@
 from flask import render_template,request, redirect, flash, session
 from flask_app.models.clinica import Clinica
+from flask_app.models.especialista import Especialista
 from flask_app import app
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
@@ -39,18 +40,19 @@ def registrar_clinica():
     return redirect("/clinica_dash")
 
 # LOGIN CLINICA ......................................
-@app.route('/clinica_login', methods=['POST'])
-def clinica_login():
+@app.route('/login', methods=['POST'])
+def login():
     data = { "email" : request.form["email"] }
     clinica_in_db = Clinica.get_by_email(data)
-    if not clinica_in_db:
-        flash("Email/Contraseña Invalido.")
-        return redirect("/")
-    if not bcrypt.check_password_hash(clinica_in_db.contraseña, request.form['contraseña']):
-        flash("Email/Contraseña Invalido.")
-        return redirect('/')
-    session['clinica_id'] = clinica_in_db.id
-    return redirect("/clinica_dash")
+    especialista_in_db = Especialista.get_by_email(data)
+    if clinica_in_db and bcrypt.check_password_hash(clinica_in_db.contraseña, request.form['contraseña']):
+        session['clinica_id'] = clinica_in_db.id
+        return redirect("/clinica_dash")
+    elif especialista_in_db and bcrypt.check_password_hash(especialista_in_db.contraseña, request.form['contraseña']):
+        session['especialista_id'] = especialista_in_db.id
+        return redirect("/especialista_dash")
+    flash("Email/Contraseña Invalido.")
+    return redirect("/")
 
 @app.route('/clinica_dash')
 def clinica_dashboard():
@@ -58,6 +60,11 @@ def clinica_dashboard():
         return redirect('/')
     clinica=Clinica.get_one(session['clinica_id'])
     return render_template('clinica_dash.html', clinica=clinica)
+
+@app.route('/lista_especialistas')
+def lista_especialistas():
+    especialistas = Especialista.get_all(id)
+    return render_template('especialista_lista.html', especialistas=especialistas)
 
 # LOGUT CLINICA ........................................
 @app.route('/clinica_logout')

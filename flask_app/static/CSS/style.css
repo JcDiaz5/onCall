@@ -5,7 +5,95 @@
 body {
     font-family: 'Fira Sans', sans-serif;
 }
-/* Registro Pop-up */
+
+
+/* LOGIN & REGISTRATION ................................. */
+.main {
+    background-image: url('/../static/img/login&reg_bg.png');
+    background-size: cover;
+    height: 100vh;
+    overflow-y: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-header {
+    width: 350px;
+    margin: 40px;
+}
+
+.logo-row {
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-msg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+}
+
+.signin-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.register-row {
+    color: white;
+    text-shadow: 
+    -1px -1px 0 #59215e,
+    1px -1px 0 #59215e,
+    -1px 1px 0 #59215e,
+    1px 1px 0 #59215e; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.login-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-row h1 {
+    color: white;
+    text-shadow: 2px 2px #94439c;
+}
+
+.index-row input {
+    text-align: center;
+    border: 2px solid rgba(155, 153, 153, 0.676);
+    border-radius: 5px;
+    padding:10px;
+    font-size: 18px;
+    box-shadow: 4px 4px rgba(214, 214, 214, 0.489);
+    box-sizing: border-box;
+    margin-bottom:10px;
+    width: 100%;
+}
+
+.form {
+    color: rgb(251, 251, 251);
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    gap: 10px;
+}
+
+
+/* POP-UP REGISTER FORMS ............................... */
 .overlay {
     display: none;
     position: fixed;
@@ -24,7 +112,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: #fff;
+    background-color: rgb(233, 232, 232);
     z-index: 2;
     max-width: 550px;
     max-height: 80vh;
@@ -68,71 +156,19 @@ body {
 }
 
 
-/* LOGIN & REGISTRATION ................................. */
-.logo-header {
-    width: 200px;
-    margin: 20px 40px;
-}
-
-.welcome-msg {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 80px;
-    color: gray;
-}
-
-.signin-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-}
-
-.register-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px;
-}
-
-.btn-container {
-    display: flex;
-    gap: 50px;
-}
-
-.login-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.login-row h1, h2 {
-    color: rgb(89, 90, 92)
-}
-
-.index-row input {
-    border: 2px solid rgba(155, 153, 153, 0.676);
-    border-radius: 5px;
-    padding:7px;
-    font-size: 20px;
-    box-shadow: 4px 4px rgba(214, 214, 214, 0.489);
-    box-sizing: border-box;
-    margin-bottom:10px;
-    width: 100%;
-}
-
-.form {
-    color: lightslategray
-}
 /* CLINIC DASHBOARD ..................................... */
-
-.clinica-dash {
-    background-image: url('/../static/img/login&reg_background.png');
+.dashboard-bg {
+    background-image: url('/../static/img/clinica_dash_bg.png');
     background-size: cover;
     height: 100vh;
+    overflow-y: auto;
     margin: 0;
     display: flex;
     flex-direction: column;
+}
+.dashboard {
+    display: flex;
+    width: 100%;
 }
 
 .dash-logo {
@@ -162,9 +198,12 @@ body {
     padding: 20px 40px;
 }
 
-.dash-contenedor {
+.clinica-dash-contenedor {
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100vh;
 }
 
 .cont-btn-principal {
@@ -178,89 +217,137 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 50%;
     gap: 30px;
 }
 
-/* BOTONES................................................. */
+/* DASHBOARD ESPECIALISTA ................................. */
+.especialista-dash-contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 60px;
+}
 
-.btn-especialistas {
+.contenedor-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* BUTTONS................................................. */
+
+.btn-principal {
     display: flex;
     align-items: center;
-    color: whitesmoke;
-    background: linear-gradient(90deg, rgb(1, 163, 188), darkorchid);
+    text-align: center;
+    color: #8e3fad;
+    background-color:transparent;
+    border: 2px solid #8e3fad;
     text-decoration: none;
     height: 50px;
     font-size: 30px;
     padding: 30px;
     border-radius: 50px;
-    border: 6px solid rgba(226, 62, 255, 0.782);
 }
 
-.btn-especialistas:hover {
-    background: linear-gradient(90deg, rgba(153, 50, 204, 0.66), rgba(1, 163, 188, 0.685));
-    border: 6px solid rgb(5, 222, 255);
-
+.btn-principal:hover {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(158, 72, 201, 0.687), rgba(49, 165, 180, 0.688));
+    border: 2px solid white;
 }
 
 .btn-secundarios {
     display: flex;
     justify-content: center;
-    color: whitesmoke;
-    background: linear-gradient(90deg, rgb(1, 163, 188), darkorchid);
+    color: rgb(26, 110, 149);
+    background-color: transparent;
+    border: 2px solid rgb(26, 110, 149);
     text-decoration: none;
     width: 250px;
     height: 25px;
     font-size: 25px;
     padding: 30px;
     border-radius: 50px;
-    border: 2px solid white;
 }
 
 .btn-secundarios:hover {
-    border: 2px solid rgb(5, 222, 255);
-    background: linear-gradient(90deg, rgba(1, 163, 188, 0.709), rgba(153, 50, 204, 0.692));
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(158, 72, 201, 0.687), rgba(49, 165, 180, 0.688));
+    border: 2px solid white;
 }
 
 .btn-logout{
-    color:rgba(114, 50, 204, 0.616);
+    color: #8e3fad;
+    background-color: transparent;
+    border: 2px solid #8e3fad;
     text-decoration: none;
     padding: 8px;
     border-radius: 50px;
-    border: 3px solid rgba(227, 102, 249, 0.552);
-    background: linear-gradient(90deg, rgba(1, 163, 188, 0.478), rgba(153, 50, 204, 0.473));
+    background: transparent;
+}
 
-}.btn-logout:hover {
-    color: rgb(245, 245, 245);
-    border: 3px solid rgb(227, 102, 249);
-    background: linear-gradient(90deg, rgb(1, 163, 188), rgb(153, 50, 204));
+.btn-logout:hover {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(105, 54, 130, 0.687), rgba(36, 106, 115, 0.688));
+    border: 2px solid white;
 }
 
 .btn-register {
     padding: 10px;
     border-radius: 50px;
-    border: 2px solid rgb(148, 148, 148);
+    border: none;
+    color: #8e3fad;
+    background-color:transparent;
+    border: 1px solid #8e3fad;
     margin: 10px;
     width: 150px;
 }
 
-.btn-register:hover {
-    color: white;
-    background-color: rgb(65, 65, 65);
-    border: 2px solid rgb(148, 148, 148);
+.btn-register:hover, .btn-signin:hover {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(158, 72, 201, 0.687), rgba(49, 165, 180, 0.688));
+    border: 2px solid white;
 }
 
+
 .btn-signin {
-    color: white;
-    background-color: #676767;
-    border: 1px solid rgb(55, 55, 55);
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    color: rgb(26, 110, 149);
+    border: none;
+    background-color: transparent;
+    border: 1px solid rgb(26, 110, 149);
     padding: 10px;
     border-radius: 50px;
     width: 150px;
 }
 
-.btn-signin:hover {
-    color: rgb(75, 75, 75);
-    background-color: #c1c1c1;
-    border: 1px solid rgb(150, 150, 150);
+.btn-especialistas {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(26, 110, 149);
+    border: none;
+    background-color: transparent;
+    border: 2px solid rgb(26, 110, 149);
+    padding: 15px;
+    border-radius: 50px;
+    width: 250px;
+}
+
+.btn-especialistas:hover {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(122, 57, 155, 0.687), rgba(38, 133, 144, 0.688));
+    border: 2px solid white;
+}
+
+/* VALIDATIONS ..................................... */
+
+.validation-text {
+    color: rgb(215, 1, 1);
+    text-align: center;
 }

@@ -7,26 +7,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Barlow:wght@200;400&family=Dancing+Script&family=Fira+Sans&family=Handjet&family=Inter:wght@200&family=Roboto:wght@100&family=Varela+Round&display=swap" rel="stylesheet">
-    <title>Dashboard Clinica - onCall</title>
+    <title>Lista de Especialistas - onCall</title>
 </head>
 <body>
-    <div class="dashboard-bg">
+    <div class="lista_bg">
         <div class="topnav-link">
             <a href="/clinica_logout" class="btn-logout">Cerrar Sesión</a>
         </div>
-        <div class="dashboard">
-            <div class="clinica-dash-contenedor">
-                <div class="logo">
-                    <a href="/clinica_dash"><img src="/../static/img/onCall_logo2.png" class="dash-logo" alt="logo_pic"></a>
+        <div class="lista-contenedor">
+            <div class="lista-especialistas">
+            {% for espacialista in especialistas %}
+                <div class="especialista-box">
+                    <input type="hidden" value="{{especialista.id}}" name="especialista_id">
+                    <p>Nombre: {{especialista.nombre}} {{especialista.apellido}}</p>
+                    <p>Rating: </p>
                 </div>
-                <div class="cont-btn-principal">
-                    <a href="###" class="btn-principal">Solicitar Especialista</a>
-                </div>
+            {% endfor %}
             </div>
-            <div class="cont-btn-secundarios">
-                <a href="/lista_especialistas" class="btn-secundarios">Lista de Especialistas</a>
-                <a href="###" class="btn-secundarios">Mensajes</a>
-                <a href="###" class="btn-secundarios">Historial</a>
+            <div class="especialista-datos">
+                <p>Nombre: </p>
+                <p>Apellido: </p>
+                <p>Email: </p>
+                <p>Contacto Telefónico: </p>
+                <p>Cedula Profesional: </p>
             </div>
         </div>
     </div>

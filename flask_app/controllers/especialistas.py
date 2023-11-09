@@ -27,3 +27,14 @@ def registrar_especialista():
     especialista_id = Especialista.guardar(data)
     session['especialista_id'] = especialista_id
     return redirect("/especialista_dash")
+
+@app.route('/especialista_dash')
+def dashboard_especialista():
+    if 'especialista_id' not in session:
+        return redirect('/')
+    return render_template('especialista_dash.html')
+
+@app.route('/especialista_logout')
+def especialista_logout():
+    session.clear()
+    return redirect('/')

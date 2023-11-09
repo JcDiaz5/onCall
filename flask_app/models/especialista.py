@@ -36,6 +36,24 @@ class Especialista:
             return False
         return cls(result[0])
     
+    @classmethod
+    def get_all(cls, especialista_id):
+        query = "SELECT * FROM especialistas WHERE id = %(id)s;"
+        data = {'id': especialista_id}
+        result = connectToMySQL(cls.DB).query_db(query,data)
+        if len(result) < 1:
+            return False
+        return cls(result)
+    
+    @classmethod
+    def get_one(cls, especialista_id):
+        query  = "SELECT * FROM especialistas WHERE id = %(id)s;"
+        data = {'id': especialista_id}
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        if not results:
+            return None
+        return cls(results[0])
+    
     # Validations............................
     @staticmethod
     def validate_especialista(especialista):
@@ -47,7 +65,7 @@ class Especialista:
             flash("Apellidos debe contener al menos 2 letras.")
             is_valid = False
         if not EMAIL_REGEX.match(especialista['email']):
-            flash("Invalid email address!")
+            flash("Email invalido.")
             is_valid = False
         if len(especialista["num_contacto"]) < 10:
             flash("Contacto debe de contener al menos 10 digitos.")
@@ -59,6 +77,6 @@ class Especialista:
             flash("Contraseña debe contener al menos 8 caracteres.")
             is_valid = False
         if (especialista["conf_contraseña"]) != (especialista["contraseña"]):
-            flash("Contraseñas no coinciden")
+            flash("Contraseñas no coinciden.")
             is_valid = False
         return is_valid

@@ -14,45 +14,31 @@
         <div class="logo-row">
             <img src="/../static/img/onCall_logo2.png" alt="logo_img" class="logo-header">
         </div>
-        <h1 class="welcome-msg">Bienvenido</h1>
+        <div class="validation-text">
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}                            <!-- check if there are any messages -->
+                    {% for message in messages %}            <!-- loop through the messages -->
+                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
         <div class="signin-container">
             <div class="login-row">
-                <h1>Clinica</h1>
-                <h2>Acceder Cuenta:</h2>
-                <div class="form">
-                    <form action="/clinica_login" class="" method="POST">
-                        <div class="index-row">
-                            <label for="email">Email:</label>
-                            <input type="email" class="" name="email">
-                        </div>
-                        <div class="index-row">
-                            <label for="contraseña">Contraseña:</label>
-                            <input type="password" class="" name="contraseña">
-                        </div>
-                        <div>
-                            <input class="btn-signin" type="submit" value="Accesar">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="login-row">
-                <h1>Especialista</h1>
-                <h2>Acceder Cuenta:</h2>
-                <div class="form">
-                    <form action="/especialista_login" class="" method="POST">
-                        <div class="index-row">
-                            <label for="email">Email:</label>
-                            <input type="email" class="" name="email">
-                        </div>
-                        <div class="index-row">
-                            <label for="contraseña">Contraseña:</label>
-                            <input type="password" class="" name="contraseña">
-                        </div>
-                        <div>
-                            <input class="btn-signin" type="submit" value="Accesar">
-                        </div>
-                    </form>
-                </div>
+                <h1>Iniciar Sesión:</h1>
+                <form action="/login" class="form" method="POST">
+                    <div class="index-row">
+                        <label for="email">Email:</label>
+                        <input type="email" class="" name="email" required>
+                    </div>
+                    <div class="index-row">
+                        <label for="contraseña">Contraseña:</label>
+                        <input type="password" class="" name="contraseña" required>
+                    </div>
+                    <div class="btn-container">
+                        <input class="btn-signin" type="submit" value="Iniciar Sesión">
+                    </div>
+                </form>
             </div>
         </div>
         <div class="register-row">
@@ -60,7 +46,7 @@
             <p>Selecciona el tipo de cuenta deseado:</p>
             <div class="btn-container">
                 <div class="reg-clinica">
-                    <button onclick="openPopup2()" class="btn-register">Clinica</button>
+                    <button onclick="openPopup2()" class="btn-register">Clínica</button>
                 </div>
                 <div class="reg-especialista">
                     <button onclick="openPopup()" class="btn-register">Especialista</button>
@@ -71,7 +57,7 @@
         <div class="overlay" id="overlay" onclick="closePopup()"></div>
         <div class="popup" id="popup">
             <h2>Registro de Especialista</h2>
-            <form action="/registrar_especialista" method="POST">
+            <form action="/registrar_especialista"  method="POST">
                 <label for="nombre">Nombre(s):</label>
                 <input type="text" id="nombre_especialista" name="nombre" required>
                 
