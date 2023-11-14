@@ -10,20 +10,22 @@
     <title>Lista de Especialistas - onCall</title>
 </head>
 <body>
-    <div class="lista_bg">
+    <div class="lista-bg">
         <div class="topnav-link">
+            <a href="/clinica_dash"><img src="/../static/img/onCall_logo_lg.png" alt="logo"></a>
             <a href="/clinica_logout" class="btn-logout">Cerrar Sesión</a>
         </div>
         <div class="lista-contenedor">
+            <h1>Lista de Especialistas</h1>
             <ul class="lista-especialistas">
             {% for especialista in especialistas %}
-                <li><a href="###", especialista_id="especialista.id">{{especialista.nombre}} {{especialista.apellido}}</a>
+                <li><a href="###" class="contacto" especialista_id="especialista.id">{{especialista.genero}} {{especialista.nombre}} {{especialista.apellido}}</a>
                     <p>Email: {{especialista.email}}</p>
                     <p>Número de Contacto: {{especialista.num_contacto}}</p>
-                    <p>Cédula Profesional: {{especialista.matricula}}</p>
+                    <p>Cédula Profesional: {{especialista.cedula}}</p>
                     <p>Rating: *****</p>
                 </li>
-                {% endfor %}
+            {% endfor %}
             </ul>
         </div>
     </div>

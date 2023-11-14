@@ -11,6 +11,7 @@ class Especialista:
         self.id = data['id']
         self.nombre = data['nombre']
         self.apellido=data['apellido']
+        self.genero=data['genero']
         self.email=data['email']
         self.num_contacto=data['num_contacto']
         self.cedula=data['cedula']
@@ -23,8 +24,8 @@ class Especialista:
     @classmethod
     def save(cls, data):
         query="""
-        INSERT INTO especialistas(nombre, apellido, email, num_contacto, cedula, contraseña) 
-        VALUES (%(nombre)s, %(apellido)s, %(email)s, %(num_contacto)s, %(cedula)s, %(contraseña)s);
+        INSERT INTO especialistas(nombre, apellido, genero, email, num_contacto, cedula, contraseña) 
+        VALUES (%(nombre)s, %(apellido)s,  %(genero)s, %(email)s, %(num_contacto)s, %(cedula)s, %(contraseña)s);
         """
         return connectToMySQL(cls.DB).query_db(query, data)
     

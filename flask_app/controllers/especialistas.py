@@ -19,6 +19,7 @@ def registrar_especialista():
     data = {
         "nombre": request.form['nombre'],
         "apellido": request.form['apellido'],
+        "genero": request.form['genero'],
         "email": request.form['email'],
         "num_contacto": request.form['num_contacto'],
         "cedula": request.form['cedula'],
