@@ -254,8 +254,9 @@ body {
 }
 
 .lista-contenedor {
-    padding: 20px;
+    gap:20px;
 }
+
 .lista-especialistas {
     display: flex;
     flex-wrap: wrap;
@@ -270,9 +271,13 @@ body {
     border-radius: 15px;
     /* box-shadow: 10px 10px 5px rgba(208, 190, 176, 0.617); */
     margin: 0px auto;
-    background: linear-gradient(90deg, rgb(241, 214, 255), rgb(198, 248, 255));;
+    background: linear-gradient(90deg, rgb(250, 241, 255), rgb(209, 250, 255));;
 }
-
+.lista-especialistas li a {
+    padding: 3px 0px;
+    margin-bottom: 2px;
+    border-bottom: 1.5px solid rgb(112, 112, 112);
+}
 .lista-especialistas li {
     display: flex;
     flex-direction: column;
@@ -282,22 +287,24 @@ body {
     border-radius: 15px;
     gap: 5px;
     box-shadow: 3px 3px rgb(189, 174, 209);
+    transition: background 1s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .lista-especialistas li:hover {
-    padding: 20px;
     border: 3px solid rgba(187, 127, 217, 0.672);
-    background: linear-gradient(90deg, rgb(233, 189, 255), rgb(158, 243, 252));
-    border-radius: 15px;
+    background: linear-gradient(90deg, rgb(238, 213, 251), rgb(194, 249, 255));
     box-shadow: 3px 3px rgb(153, 125, 169);
+    transform: scale(1.1);
 }
 
 .lista-contenedor h1 {
+    font-size: 40px;
     text-align: center;
     background-image: linear-gradient(to right, #f039a7, #2994ff);
     -webkit-background-clip: text; /* For Safari/Chrome */
     color: transparent;
-    margin:15px;
+    margin-bottom: 25px;
 }
 
 .contacto {

@@ -66,6 +66,11 @@ def lista_especialistas():
     especialistas = Especialista.get_all()
     return render_template('especialista_lista.html', especialistas=especialistas)
 
+@app.route('/mensajes')
+def inbox():
+    clinic_messages = Clinica.get_messages(session['clinica_id'])
+    return render_template('messages.html', messages=clinic_messages)
+
 # LOGUT CLINICA ........................................
 @app.route('/clinica_logout')
 def clinica_logout():

@@ -45,6 +45,16 @@ class Clinica:
         if not results:
             return None
         return cls(results[0])
+    
+    @classmethod
+    def get_messages(cls, clinica_id):
+        query = "SELECT * FROM messages WHERE id = %(id)s;"
+        data = {'id': clinica_id}
+        messages = connectToMySQL(cls.DB).query_db(query, data)
+        if not messages:
+            return None
+        return cls(messages)
+
 
 # Validations............
     @staticmethod
