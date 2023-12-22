@@ -11,8 +11,7 @@ def registrar_especialista():
     if not Especialista.validate_especialista(request.form):
         return redirect("/")
     email = { "email" : request.form["email"] }
-    especialista_en_bd = Especialista.get_by_email(email)
-    if especialista_en_bd:
+    if especialista_en_bd := Especialista.get_by_email(email):
         flash("Una cuenta que utiliza ese correo ya ha sido registrada. Favor de elegír un correo distinto.")
         return redirect("/")
     pw_hash = bcrypt.generate_password_hash(request.form['contraseña'])

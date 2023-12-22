@@ -22,8 +22,7 @@ def registrar_clinica():
     if not Clinica.validate_clinica(request.form):
         return redirect("/")
     email = { "email" : request.form["email"] }
-    clinica_en_bd = Clinica.get_by_email(email)
-    if clinica_en_bd:
+    if clinica_en_bd := Clinica.get_by_email(email):
         flash("Una cuenta que utiliza ese correo ya ha sido registrada. Favor de elegír un correo distinto.")
         return redirect("/")
     pw_hash = bcrypt.generate_password_hash(request.form['contraseña'])
